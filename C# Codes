@@ -1,0 +1,4 @@
+if (Input.GetKey("w"))
+        {
+            rb.AddForce(-player.position * playerSpeed * Time.deltaTime);
+        }

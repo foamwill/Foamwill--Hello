@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://textures/tiles.jpeg" type="Texture" id=1]
+[ext_resource path="res://scenes/myplayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/target1.png" type="Texture" id=3]
+[ext_resource path="res://scripts/crosshair.gd" type="Script" id=4]
+[ext_resource path="res://SerreriaSobria.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/ManageNPC.gd" type="Script" id=6]
+[ext_resource path="res://assets/Weapons/Models/ammo_pistol.obj" type="ArrayMesh" id=7]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 20, 0.4, 20 )
+uv1_triplanar = true
+
+[sub_resource type="DynamicFont" id=10]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="BoxShape" id=11]
+
+[sub_resource type="BoxShape" id=12]
+
+[sub_resource type="CubeMesh" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.423529, 0.243137, 0.243137, 1 )
+
+[node name="level1" type="Spatial"]
+
+[node name="ground" type="StaticBody" parent="."]
+transform = Transform( 100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, -0.5, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+shape = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="ground/CollisionShape"]
+mesh = SubResource( 2 )
+material = SubResource( 3 )
+
+[node name="ammo" type="StaticBody" parent="." groups=["ammo_gun"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, -9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="ammo"]
+shape = SubResource( 1 )
+
+[node name="ammo_pistol" type="MeshInstance" parent="ammo/CollisionShape"]
+transform = Transform( 80, 0, 0, 0, 80, 0, 0, 0, 80, 0, 0, 0 )
+mesh = ExtResource( 7 )
+
+[node name="ammo_pistol2" type="MeshInstance" parent="ammo/CollisionShape"]
+transform = Transform( 80, 0, 0, 0, 80, 0, 0, 0, 80, 0.6, 0, 0 )
+mesh = ExtResource( 7 )
+
+[node name="ammo_pistol3" type="MeshInstance" parent="ammo/CollisionShape"]
+transform = Transform( 80, 0, 0, 0, 80, 0, 0, 0, 80, 0.3, 0, 0.5 )
+mesh = ExtResource( 7 )
+
+[node name="ammo_pistol4" type="MeshInstance" parent="ammo/CollisionShape"]
+transform = Transform( 69.282, -40, -1.74846e-06, 0, -3.49691e-06, 80, -40, -69.282, -3.02841e-06, -0.400001, -0.3, 0.5 )
+mesh = ExtResource( 7 )
+
+[node name="uiMessage" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.837
+anchor_right = 0.5
+anchor_bottom = 0.837
+margin_left = -250.0
+margin_top = -50.2
+margin_right = 250.0
+margin_bottom = 49.8
+custom_fonts/font = SubResource( 10 )
+text = "Hello World"
+align = 1
+valign = 1
+
+[node name="obstacle" type="StaticBody" parent="."]
+transform = Transform( 4.33013, -6.8731, -6.8731, 0, 8.24769, -8.24769, 2.5, 11.9046, 11.9046, -44, -3.72529e-08, 40 )
+
+[node name="CollisionShape" type="CollisionShape" parent="obstacle"]
+shape = SubResource( 11 )
+
+[node name="CSGBox" type="CSGBox" parent="obstacle/CollisionShape"]
+
+[node name="target1" type="StaticBody" parent="." groups=["target"]]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5.05, 9 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="target1"]
+shape = SubResource( 12 )
+
+[node name="CSGMesh" type="CSGMesh" parent="target1/CollisionShape"]
+mesh = SubResource( 13 )
+material = SubResource( 14 )
+
+[node name="target2" type="StaticBody" parent="." groups=["target"]]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5.05, 3 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="target2"]
+shape = SubResource( 12 )
+
+[node name="CSGMesh" type="CSGMesh" parent="target2/CollisionShape"]
+mesh = SubResource( 13 )
+material = SubResource( 14 )
+
+[node name="target3" type="StaticBody" parent="." groups=["target"]]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5.05, -3 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="target3"]
+shape = SubResource( 12 )
+
+[node name="CSGMesh" type="CSGMesh" parent="target3/CollisionShape"]
+mesh = SubResource( 13 )
+material = SubResource( 14 )
+
+[node name="target4" type="StaticBody" parent="." groups=["target"]]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5.05, -9 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="target4"]
+shape = SubResource( 12 )
+
+[node name="CSGMesh" type="CSGMesh" parent="target4/CollisionShape"]
+mesh = SubResource( 13 )
+material = SubResource( 14 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+margin_bottom = 15.0
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="myplayer" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 1, 0 )
+
+[node name="aimPart" type="Spatial" parent="myplayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )

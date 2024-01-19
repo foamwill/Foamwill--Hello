@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/flamethrower.obj-75aa048b0e3662d74720aa632ab4262a.mesh"
+
+[deps]
+
+files=[ "res://.import/flamethrower.obj-75aa048b0e3662d74720aa632ab4262a.mesh" ]
+
+source_file="res://assets/Weapons/Models/flamethrower.obj"
+dest_files=[ "res://.import/flamethrower.obj-75aa048b0e3662d74720aa632ab4262a.mesh", "res://.import/flamethrower.obj-75aa048b0e3662d74720aa632ab4262a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/14054_Pirate_Ship_Cannon_on_Cart_v1_l3.obj-4ad5485d597bc2815d6c3c273f424a16.mesh"
+
+[deps]
+
+files=[ "res://.import/14054_Pirate_Ship_Cannon_on_Cart_v1_l3.obj-4ad5485d597bc2815d6c3c273f424a16.mesh" ]
+
+source_file="res://assets/Pirate_Ship_Cannon_on_Cart_v1_L3.123c2843a33b-05be-45ae-bab2-5d2711d9dbe3/14054_Pirate_Ship_Cannon_on_Cart_v1_l3.obj"
+dest_files=[ "res://.import/14054_Pirate_Ship_Cannon_on_Cart_v1_l3.obj-4ad5485d597bc2815d6c3c273f424a16.mesh", "res://.import/14054_Pirate_Ship_Cannon_on_Cart_v1_l3.obj-4ad5485d597bc2815d6c3c273f424a16.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

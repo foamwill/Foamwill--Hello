@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Can You Feel My Heart Gigachad Sound Effect.mp3-34d6aaccec2f1ba0a4a0f9e73d468dd3.mp3str"
+
+[deps]
+
+source_file="res://audio/Can You Feel My Heart Gigachad Sound Effect.mp3"
+dest_files=[ "res://.import/Can You Feel My Heart Gigachad Sound Effect.mp3-34d6aaccec2f1ba0a4a0f9e73d468dd3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

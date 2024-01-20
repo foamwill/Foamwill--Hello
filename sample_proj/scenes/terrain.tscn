@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://island.png" type="Texture" id=1]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
+[ext_resource path="res://assets/maujoe.basic_water_material/materials/basic_water_material.material" type="Material" id=3]
+[ext_resource path="res://terrainData/data.hterrain" type="Resource" id=4]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=5]
+[ext_resource path="res://Textures/sand.jpg" type="Texture" id=6]
+[ext_resource path="res://Textures/GroundGrassGreen002_COL_2K.jpg" type="Texture" id=7]
+[ext_resource path="res://assets/3d_car_customizable/car.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+mode = 0
+textures = [ [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ], [ null, null, null ] ]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 5 )
+lod_scale = 2.0
+centered = true
+_terrain_data = ExtResource( 4 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 1 )
+render_layers = 1
+shader_params/u_ground_uv_scale = 500.0
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="HTerrain"]
+transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 400, 0, -1, 0 )
+material = ExtResource( 3 )
+
+[node name="Car" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 7, 25 )
+
+[node name="Camera" type="Camera" parent="Car"]
+transform = Transform( -0.939693, -0.17101, 0.296198, 0, 0.866025, 0.5, -0.34202, 0.469846, -0.813798, 2.2, 2, -4.6 )

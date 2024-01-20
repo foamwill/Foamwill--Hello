@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/peace-orchestra-who-am-i-animatrix-edit.mp3-0a18105d97465604d6f48f18e009b538.mp3str"
+
+[deps]
+
+source_file="res://peace-orchestra-who-am-i-animatrix-edit.mp3"
+dest_files=[ "res://.import/peace-orchestra-who-am-i-animatrix-edit.mp3-0a18105d97465604d6f48f18e009b538.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,506 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://images/tiles.jpeg" type="Texture" id=1]
+[ext_resource path="res://images/brick.jpeg" type="Texture" id=2]
+[ext_resource path="res://images/ceiling.jpeg" type="Texture" id=3]
+[ext_resource path="res://scenes/petrol_can_to_collide.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Plane.tscn" type="PackedScene" id=5]
+[ext_resource path="res://petrol_can-removebg-preview.png" type="Texture" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.3, 0.3, 0.3 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 1 )
+metallic = 0.2
+metallic_specular = 0.2
+uv1_scale = Vector3( 20, 20, 20 )
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 10, 10, 10 )
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 1 )
+metallic = 0.2
+metallic_specular = 0.2
+uv1_scale = Vector3( 5, 5, 5 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0, 1, 0.584314, 1 )
+
+[node name="level2" type="Spatial"]
+
+[node name="petrol_can1_ui" type="TextureRect" parent="."]
+margin_left = 410.0
+margin_top = 28.0
+margin_right = 770.0
+margin_bottom = 470.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="petrol_can2_ui" type="TextureRect" parent="."]
+margin_left = 490.0
+margin_top = 28.0
+margin_right = 850.0
+margin_bottom = 470.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="petrol_can3_ui" type="TextureRect" parent="."]
+margin_left = 570.0
+margin_top = 28.0
+margin_right = 930.0
+margin_bottom = 470.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="room8" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -14, 4, -16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room8"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room8/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="ground" type="StaticBody" parent="."]
+transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 30, 0, -0.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+shape = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="ground/CollisionShape"]
+layers = 65
+material = SubResource( 4 )
+
+[node name="ceiling" type="StaticBody" parent="."]
+transform = Transform( 30.24, 0, 0, 0, 0.35, 0, 0, 0, 30.24, 0, 8.34969, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="ceiling"]
+shape = SubResource( 5 )
+
+[node name="CSGBox" type="CSGBox" parent="ceiling/CollisionShape"]
+material = SubResource( 6 )
+
+[node name="room2" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -22, 4, -24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room2"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room2/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room3" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -6, 4, -24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room3"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room3/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room9" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -22, 4, -16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room9"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room9/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room10" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -6, 4, -16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room10"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room10/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room11" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -14, 4, -8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room11"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room11/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room12" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -22, 4, -8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room12"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room12/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room13" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -6, 4, -8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room13"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room13/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room14" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -14, 4, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room14"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room14/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room15" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -22, 4, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room15"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room15/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room16" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -6, 4, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room16"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room16/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room17" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -14, 4, 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room17"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room17/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room18" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -22, 4, 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room18"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room18/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room19" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -6, 4, 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room19"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room19/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room20" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -14, 4, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room20"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room20/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room21" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -22, 4, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room21"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room21/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room22" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -6, 4, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room22"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room22/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room4" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, 15, 4, -20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room4"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room4/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room5" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, 7, 4, -20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room5"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room5/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room6" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, 23, 4, -20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room6"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room6/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room7" type="StaticBody" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 4, 0, 2, 0, -8.74228e-08, 19, 4, -4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room7"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room7/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room23" type="StaticBody" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 4, 0, 2, 0, -8.74228e-08, 19, 4, -12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room23"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room23/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room24" type="StaticBody" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 4, 0, 2, 0, -8.74228e-08, 19, 4, 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room24"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room24/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room25" type="StaticBody" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 4, 0, 2, 0, -8.74228e-08, 11, 4, -4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room25"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room25/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room26" type="StaticBody" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 4, 0, 2, 0, -8.74228e-08, 11, 4, -12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room26"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room26/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room27" type="StaticBody" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 4, 0, 2, 0, -8.74228e-08, 11, 4, 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room27"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room27/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room28" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, 15, 4, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room28"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room28/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room29" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, 7, 4, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room29"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room29/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="room30" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, 23, 4, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="room30"]
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="room30/CollisionShape"]
+material = SubResource( 8 )
+
+[node name="walls" type="StaticBody" parent="." groups=["wall"]]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 32, -31, 4, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="walls"]
+shape = SubResource( 9 )
+
+[node name="CSGBox" type="CSGBox" parent="walls/CollisionShape"]
+material = SubResource( 10 )
+
+[node name="walls2" type="StaticBody" parent="." groups=["wall"]]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 32, 31, 4, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="walls2"]
+shape = SubResource( 9 )
+
+[node name="CSGBox" type="CSGBox" parent="walls2/CollisionShape"]
+material = SubResource( 10 )
+
+[node name="walls3" type="StaticBody" parent="." groups=["wall"]]
+transform = Transform( -4.37114e-08, 0, 32, 0, 5, 0, -1, 0, -1.39876e-06, 1.35505e-06, 4, 31 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="walls3"]
+shape = SubResource( 9 )
+
+[node name="CSGBox" type="CSGBox" parent="walls3/CollisionShape"]
+material = SubResource( 10 )
+
+[node name="walls4" type="StaticBody" parent="." groups=["wall"]]
+transform = Transform( -4.37114e-08, 0, 32, 0, 5, 0, -1, 0, -1.39876e-06, -1.35505e-06, 4, -31 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="walls4"]
+shape = SubResource( 9 )
+
+[node name="CSGBox" type="CSGBox" parent="walls4/CollisionShape"]
+material = SubResource( 10 )
+
+[node name="petrol_can_to_collide" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5 )
+
+[node name="CSGSphere" type="CSGSphere" parent="petrol_can_to_collide"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+layers = 64
+
+[node name="petrol_can_to_collide2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -19 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="petrol_can_to_collide2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+layers = 64
+
+[node name="petrol_can_to_collide3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2, -20 )
+
+[node name="CSGSphere3" type="CSGSphere" parent="petrol_can_to_collide3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+layers = 64
+
+[node name="StaticBody" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -24 )
+
+[node name="CSGSphere" type="CSGSphere" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+layers = 64
+radial_segments = 32
+rings = 32
+material = SubResource( 11 )

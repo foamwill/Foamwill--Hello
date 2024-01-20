@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://images/tiles.jpeg" type="Texture" id=1]
+[ext_resource path="res://scenes/myplayer.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 20, 20, 20 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.00848353, 6, 1 )
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.584314, 0.266667, 0.8, 1 )
+
+[node name="scene1" type="Spatial"]
+
+[node name="gound" type="StaticBody" parent="." groups=["ground"]]
+transform = Transform( 50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, -0.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="gound"]
+shape = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="gound/CollisionShape"]
+material = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="gound"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00855, 5.00304, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="gound"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="gound"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="gound"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 1 )
+shape = SubResource( 3 )
+
+[node name="box_to_collide" type="StaticBody" parent="." groups=["pick_me"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box_to_collide"]
+shape = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="box_to_collide/CollisionShape"]
+material = SubResource( 5 )
+
+[node name="box_to_collide2" type="StaticBody" parent="." groups=["pick_me"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box_to_collide2"]
+shape = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="box_to_collide2/CollisionShape"]
+material = SubResource( 5 )
+
+[node name="box_to_collide3" type="StaticBody" parent="." groups=["pick_me"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box_to_collide3"]
+shape = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="box_to_collide3/CollisionShape"]
+material = SubResource( 5 )
+
+[node name="box_to_collide4" type="StaticBody" parent="." groups=["pick_me"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="box_to_collide4"]
+shape = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="box_to_collide4/CollisionShape"]
+material = SubResource( 5 )
+
+[node name="myplayer" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -40 )
